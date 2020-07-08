@@ -1,0 +1,17 @@
+<!-- .list-group>.list-group-item{Text $}*3 -->
+
+<div class="list-group">
+
+  <ng-container *ngFor="let playlist of playlists; index as i">
+    
+    <div class="list-group-item" 
+      [class.active]=" playlist == selected " 
+      (click)="select(playlist)">
+
+      {{i+1}}. {{  playlist.name  }}
+    </div>
+
+  </ng-container>
+
+
+</div>

@@ -1,0 +1,33 @@
+<div class="row">
+
+  <div class="col">
+    <app-playlists-list 
+      [items]="playlists" 
+      [(selected)]="selected"></app-playlists-list>
+
+      <!-- <input type="text" ngModel> -->
+  </div>
+
+  <div class="col">
+
+    <div [ngSwitch]="mode">
+
+      <div *ngSwitchDefault>
+        <app-playlist-details 
+          [playlist]="selected" 
+          (edit)="edit()"></app-playlist-details>
+      </div>
+
+      <div *ngSwitchCase=" 'edit' ">
+        <app-playlist-form
+          [playlist]="selected" 
+          (cancel)="cancel()"
+          (save)="save($event)"
+        ></app-playlist-form>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

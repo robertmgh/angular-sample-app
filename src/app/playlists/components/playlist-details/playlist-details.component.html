@@ -1,0 +1,20 @@
+<!-- <pre>{{ playlist | json }}</pre> -->
+
+<dl [title]="playlist.name" [attr.data-id]="playlist.id">
+
+  <dt>Name:</dt>
+  <dd>{{playlist.name | titlecase   }}</dd>
+
+  <dt>Public:</dt>
+  <dd [class]="{ 
+    'is-public': playlist.public,
+    'is-private': !playlist.public 
+  }">
+    {{playlist.public | yesno:'Yeah!':'Nope' }}</dd>
+
+  <dt>Description:</dt>
+  <dd>{{playlist.description}}</dd>
+</dl>
+
+
+<button class="btn btn-info" (click)="editClick()">Edit</button>

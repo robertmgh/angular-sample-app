@@ -1,0 +1,33 @@
+<!-- <pre>{{playlist | json}}</pre>
+<pre>{{formRef.value | json}}</pre> -->
+
+ <!-- <button (click)="hide = !hide">Toggle</button> -->
+
+<form #formRef="ngForm" (ngSubmit)="formRef.valid && submit(formRef.value)" *ngIf="true">
+
+  <div class="form-group">
+    <label>Name:</label>
+    <input type="text" class="form-control" [ngModel]="playlist.name" name="name" #nameRef="ngModel" />
+
+    <p>{{ 170 - nameRef.viewModel.length}} / 170</p>
+  </div>
+
+  <div class="form-group">
+    <label>
+      <input type="checkbox" [ngModel]="playlist.public" name="public" />
+      Public
+    </label>
+  </div>
+
+  <!-- <button (click)="hide = !hide">Toggle</button>
+  <div class="form-group" *ngIf="hide"> -->
+
+  <div class="form-group">
+    <label>Description:</label>
+    <textarea class="form-control" [ngModel]="playlist.description" name="description"></textarea>
+  </div>
+
+  <button class="btn btn-danger" (click)="cancelClick()">Cancel</button>
+  <button class="btn btn-success" type="submit">Save</button>
+
+</form>
